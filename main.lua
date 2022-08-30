@@ -1,0 +1,3 @@
+-- name: Luigi's Mansion 64
+-- description: Luigi's Mansion 64 romhack ported to co-op by Dragonary
+-- incompatible: romhack

@@ -1,0 +1,14 @@
+const Collision col_wf_geo_000B90_0x700fc44[] = {
+COL_INIT(),
+COL_VERTEX_INIT(4),
+COL_VERTEX( 0, -383, 128),
+COL_VERTEX( 0, 384, 128),
+COL_VERTEX( -168, 384, -378),
+COL_VERTEX( 0, 384, -378),
+COL_TRI_INIT( 0, 3),
+COL_TRI( 3, 2, 1),
+COL_TRI( 0, 1, 2),
+COL_TRI( 3, 1, 0),
+COL_TRI_STOP(),
+COL_END(),
+};

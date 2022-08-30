@@ -1,0 +1,203 @@
+#include <ultra64.h>
+#include "sm64.h"
+#include "behavior_data.h"
+#include "model_ids.h"
+#include "seq_ids.h"
+#include "dialog_ids.h"
+#include "segment_symbols.h"
+#include "level_commands.h"
+
+#include "game/level_update.h"
+
+#include "levels/scripts.h"
+
+#include "actors/common1.h"
+
+#include "make_const_nonconst.h"
+#include "levels/bbh/header.h"
+#include "level_misc_macros.h"
+#include "macro_preset_names.h"
+static const MacroObject local_macro_objects_bbh_1[] = {
+MACRO_OBJECT_WITH_BEH_PARAM(macro_haunted_chair,32,63576,65516,340,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_mr_i,0,61715,65332,4565,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_wooden_signpost,0,670,65332,4520,85),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_haunted_chair,96,64456,20,160,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_one_coin,0,250,1775,151,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,64621,820,1790,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,63541,820,64266,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,664,2562,64803,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,2866,527,1889,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,972,0,112,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,63401,1134,4575,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,64986,1751,1200,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_red_coin,0,1875,1751,1200,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_one_coin,0,340,1650,64861,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_blue_coin_switch,0,546,3276,205,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin,0,64236,3313,255,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin,0,65336,3313,255,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin,0,1450,3313,255,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin,0,2650,3313,255,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_wooden_signpost,64,63695,65332,63528,43),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_1up,0,2874,2870,1700,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_scuttlebug,0,65143,65332,62616,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_scuttlebug,0,1997,65333,62936,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_scuttlebug,0,62229,65332,431,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_wooden_signpost,48,63774,65332,4658,86),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_scuttlebug,0,3313,65332,5046,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_mr_i,0,664,2868,1271,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_one_coin,0,1980,2850,25,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_one_coin,0,1980,2190,25,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_vanish_cap,0,700,80,62736,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_swoop,0,39,63559,4056,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_swoop,0,152,63559,2768,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_scuttlebug,0,4581,65316,336,0),
+MACRO_OBJECT_WITH_BEH_PARAM(macro_box_vanish_cap,0,64004,2870,1700,0),
+MACRO_OBJECT_END(),
+};
+
+
+static const LevelScript script_func_local_1[] = {
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/  2089,  1331, -1125, /*angle*/ 0, 270, 0, /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/  1331,  1075, -1330, /*angle*/ 0, 90, 0,  /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/  2089,  1331,  -511, /*angle*/ 0, 270, 0, /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/  -511,   358, -1330, /*angle*/ 0, 90, 0,  /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/  1126,   358,  2212, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    OBJECT(/*model*/ MODEL_RED_FLAME,                  /*pos*/   205,   358,  2212, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvFlame),
+    RETURN(),
+};
+
+static const LevelScript script_func_local_2[] = {
+    OBJECT(/*model*/ MODEL_BBH_TILTING_FLOOR_PLATFORM, /*pos*/  2866,   820,  1897, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBbhTiltingTrapPlatform),
+    OBJECT(/*model*/ MODEL_BBH_TUMBLING_PLATFORM,      /*pos*/  2961,     0,  -768, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBbhTumblingBridge),
+    OBJECT(/*model*/ MODEL_BBH_MOVING_BOOKSHELF,       /*pos*/ -1994,   819,   213, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvHauntedBookshelf),
+    OBJECT(/*model*/ MODEL_BBH_MESH_ELEVATOR,          /*pos*/ -2985,  -205,  5400, /*angle*/ 0, -45, 0, /*behParam*/ 0x00000000, /*beh*/ bhvMeshElevator),
+    OBJECT(/*model*/ MODEL_BBH_MERRY_GO_ROUND,         /*pos*/  -205, -2560,   205, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvMerryGoRound),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/  2200,   819,  -800, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvCoffinSpawner),
+    RETURN(),
+};
+
+static const LevelScript script_func_local_3[] = {
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  1000,    50,  1000, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBigBoo,       /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/    20,   100,  -908, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBoo,                 /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  3150,   100,   398, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBoo,                 /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/ -2000,   150,  -800, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBoo,                 /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  2851,   100,  2289, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBoo,                 /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/ -1551,   100, -1018, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvGhostHuntBoo,                 /*acts*/ ACT_1),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BBH_STAIRCASE_STEP,         /*pos*/   973,     0,   517, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvHiddenStaircaseStep, /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BBH_STAIRCASE_STEP,         /*pos*/   973,  -206,   717, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvHiddenStaircaseStep, /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BBH_STAIRCASE_STEP,         /*pos*/   973,  -412,   917, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvHiddenStaircaseStep, /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/    20,   100,  -908, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  3150,   100,   398, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/ -2000,   150,  -800, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  2851,   100,  2289, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/ -1551,   100, -1018, /*angle*/ 0, 0, 0,   /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_NONE,                       /*pos*/   990, -2146,  -908, /*angle*/ 0, -45, 0, /*behParam*/ 0x00030000, /*beh*/ bhvFlamethrower,          /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_NONE,                       /*pos*/ -1100, -2372,  1100, /*angle*/ 0, 135, 0, /*behParam*/ 0x01000000, /*beh*/ bhvMerryGoRoundBooManager,         /*acts*/ ACT_2 | ACT_3 | ACT_4 | ACT_5 | ACT_6),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/  1030,  1922,  2546, /*angle*/ 0, -90, 0, /*behParam*/ 0x04000000, /*beh*/ bhvBalconyBigBoo,        /*acts*/ ALL_ACTS),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_BOO,                        /*pos*/   581,  1850,  -206, /*angle*/ 0, -90, 0, /*behParam*/ 0x00000000, /*beh*/ bhvBoo,                 /*acts*/ ALL_ACTS),
+    OBJECT(/*model*/ MODEL_MAD_PIANO,                  /*pos*/ -1300,     0,  2310, /*angle*/ 0, 243, 0, /*behParam*/ 0x00000000, /*beh*/ bhvMadPiano),
+    OBJECT(/*model*/ MODEL_HAUNTED_CHAIR,              /*pos*/ -1530,     0,  2200, /*angle*/ 0, 66, 0,  /*behParam*/ 0x00000000, /*beh*/ bhvHauntedChair),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/ -1330,   890,   200, /*angle*/ 0, 90, 0,  /*behParam*/ 0x00000000, /*beh*/ bhvBookendSpawn),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/  -818,   890,  -200, /*angle*/ 0, 270, 0, /*behParam*/ 0x00000000, /*beh*/ bhvBookendSpawn),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/ -1330,   890,  -622, /*angle*/ 0, 90, 0,  /*behParam*/ 0x00000000, /*beh*/ bhvBookendSpawn),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/  -818,   890,  -686, /*angle*/ 0, 270, 0, /*behParam*/ 0x00000000, /*beh*/ bhvBookendSpawn),
+    OBJECT(/*model*/ MODEL_NONE,                       /*pos*/ -1950,   880,     8, /*angle*/ 0, 180, 0, /*behParam*/ 0x00000000, /*beh*/ bhvHauntedBookshelfManager),
+    OBJECT(/*model*/ MODEL_BOOKEND,                    /*pos*/  2680,  1045,   876, /*angle*/ 0, 166, 0, /*behParam*/ 0x00000000, /*beh*/ bhvFlyingBookend),
+    OBJECT(/*model*/ MODEL_BOOKEND,                    /*pos*/  3075,  1045,   995, /*angle*/ 0, 166, 0, /*behParam*/ 0x00000000, /*beh*/ bhvFlyingBookend),
+    OBJECT(/*model*/ MODEL_BOOKEND,                    /*pos*/ -1411,   218,   922, /*angle*/ 0, 180, 0, /*behParam*/ 0x00000000, /*beh*/ bhvFlyingBookend),
+    RETURN(),
+};
+
+static const LevelScript script_func_local_4[] = {
+    OBJECT_WITH_ACTS(/*model*/ MODEL_STAR, /*pos*/ -2030, 1350,  1940, /*angle*/ 0, 0, 0,  /*behParam*/ 0x02000000, /*beh*/ bhvStar,                    /*acts*/ ALL_ACTS),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_NONE, /*pos*/  -204, 1100,  1576, /*angle*/ 0, 0, 0,  /*behParam*/ 0x03000000, /*beh*/ bhvHiddenRedCoinStar,    /*acts*/ ALL_ACTS),
+    OBJECT_WITH_ACTS(/*model*/ MODEL_NONE, /*pos*/   923, 1741,  -332, /*angle*/ 0, 18, 0, /*behParam*/ 0x05010000, /*beh*/ bhvMrI,                    /*acts*/ ALL_ACTS),
+    RETURN(),
+};
+
+const LevelScript level_bbh_entry[] = {
+    INIT_LEVEL(),
+    LOAD_MIO0(        /*seg*/ 0x07, _bbh_segment_7SegmentRomStart, _bbh_segment_7SegmentRomEnd),
+    LOAD_MIO0(        /*seg*/ 0x0A, _bbh_skybox_mio0SegmentRomStart, _bbh_skybox_mio0SegmentRomEnd),
+    LOAD_MIO0_TEXTURE(/*seg*/ 0x09, _spooky_mio0SegmentRomStart, _spooky_mio0SegmentRomEnd),
+    LOAD_MIO0(        /*seg*/ 0x05, _group9_mio0SegmentRomStart, _group9_mio0SegmentRomEnd),
+    LOAD_RAW(         /*seg*/ 0x0C, _group9_geoSegmentRomStart,  _group9_geoSegmentRomEnd),
+    LOAD_MIO0(        /*seg*/ 0x06, _group17_mio0SegmentRomStart, _group17_mio0SegmentRomEnd),
+    LOAD_RAW(         /*seg*/ 0x0D, _group17_geoSegmentRomStart, _group17_geoSegmentRomEnd),
+    LOAD_MIO0(        /*seg*/ 0x08, _common0_mio0SegmentRomStart, _common0_mio0SegmentRomEnd),
+    LOAD_RAW(         /*seg*/ 0x0F, _common0_geoSegmentRomStart,  _common0_geoSegmentRomEnd),
+    ALLOC_LEVEL_POOL(),
+    MARIO(/*model*/ MODEL_MARIO, /*behParam*/ 0x00000001, /*beh*/ bhvMario),
+    JUMP_LINK(script_func_global_1),
+    JUMP_LINK(script_func_global_10),
+    JUMP_LINK(script_func_global_18),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_HAUNTED_DOOR,           haunted_door_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_STAIRCASE_STEP,         geo_bbh_0005B0),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_TILTING_FLOOR_PLATFORM, geo_bbh_0005C8),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_TUMBLING_PLATFORM,      geo_bbh_0005E0),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_TUMBLING_PLATFORM_PART, geo_bbh_0005F8),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_MOVING_BOOKSHELF,       geo_bbh_000610),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_MESH_ELEVATOR,          geo_bbh_000628),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_MERRY_GO_ROUND,         geo_bbh_000640),
+    LOAD_MODEL_FROM_GEO(MODEL_BBH_WOODEN_TOMB,            geo_bbh_000658),
+
+    AREA(/*index*/ 1, geo_bbh_000F00),
+MACRO_OBJECTS(local_macro_objects_bbh_1),
+WARP_NODE(241,26,1,11,0),
+WARP_NODE(240,26,1,10,0),
+WARP_NODE(10,4,1,10,0),
+OBJECT_WITH_ACTS(0,666,796,5250,0,180,0,0xa0000, bhvSpinAirborneWarp,31),
+OBJECT_WITH_ACTS(122,-1997,1161,-367,0,0,0,0x5000000, bhvStar,63),
+OBJECT_WITH_ACTS(0,670,85,3190,0,0,0,0x3000000, bhvHiddenRedCoinStar,63),
+OBJECT_WITH_ACTS(122,-1557,260,-1304,0,0,0,0x2000000, bhvStar,63),
+OBJECT_WITH_ACTS(89,-1411,218,922,0,180,0,0x0, bhvFlyingBookend,31),
+OBJECT_WITH_ACTS(89,3075,1045,995,0,166,0,0x0, bhvFlyingBookend,31),
+OBJECT_WITH_ACTS(89,2680,1045,876,0,166,0,0x0, bhvFlyingBookend,31),
+OBJECT_WITH_ACTS(0,-818,890,-686,0,270,0,0x0, bhvEmitter_MOP,31),
+OBJECT_WITH_ACTS(0,-1330,890,-622,0,90,0,0x0, bhvEmitter_MOP,31),
+OBJECT_WITH_ACTS(0,-818,890,-200,0,270,0,0x0, bhvEmitter_MOP,31),
+OBJECT_WITH_ACTS(0,-1330,890,200,0,90,0,0x0, bhvEmitter_MOP,31),
+OBJECT_WITH_ACTS(217,-2094,-181,4497,0,0,0,0x0, bhvPushableMetalBox,63),
+OBJECT_WITH_ACTS(53,972,0,309,0,0,0,0x0, bhvHiddenStaircaseStep,31),
+OBJECT_WITH_ACTS(84,787,1850,741,0,-90,0,0x0, bhvBoo,28),
+OBJECT_WITH_ACTS(84,-68,-2628,45,0,270,0,0x0, bhvBalconyBigBoo,1),
+OBJECT_WITH_ACTS(122,-2401,9,4802,0,-45,0,0x1000000, bhvStar,63),
+OBJECT_WITH_ACTS(84,-2376,-2305,4879,0,0,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,-2036,-2305,2196,0,180,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,-719,100,538,0,270,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,3053,100,397,0,180,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,225,100,-795,0,270,0,0x0, bhvBoo,28),
+OBJECT_WITH_ACTS(217,-1561,-26,-1686,0,0,0,0x0, bhvPushableMetalBox,63),
+OBJECT_WITH_ACTS(116,3443,829,-245,0,0,0,0x0, bhvOneCoin,31),
+OBJECT_WITH_ACTS(116,3443,829,-1399,0,0,0,0x0, bhvOneCoin,31),
+OBJECT_WITH_ACTS(84,1536,905,-743,0,90,0,0x0, bhvBoo,28),
+OBJECT_WITH_ACTS(84,1020,100,693,0,180,0,0x0, bhvBoo,28),
+OBJECT_WITH_ACTS(84,-287,905,921,0,90,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,1555,100,-1000,0,0,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(84,-1544,100,1534,0,90,0,0x0, bhvBoo,31),
+OBJECT_WITH_ACTS(137,2096,2080,-780,0,0,0,0xd0000, bhvExclamationBox,31),
+OBJECT_WITH_ACTS(0,2200,819,-800,0,0,0,0x0, bhvCoffinSpawner,31),
+OBJECT_WITH_ACTS(58,-2985,-205,5400,0,-45,0,0x0, bhvMeshElevator,31),
+OBJECT_WITH_ACTS(57,-1994,819,-813,0,0,0,0x0, bhvHauntedBookshelf,31),
+OBJECT_WITH_ACTS(57,-1994,819,-768,0,180,0,0x0, bhvHauntedBookshelf,63),
+OBJECT_WITH_ACTS(144,205,358,2212,0,0,0,0x0, bhvFlame,31),
+OBJECT_WITH_ACTS(144,1124,358,2212,0,0,0,0x0, bhvFlame,31),
+OBJECT_WITH_ACTS(144,-511,358,-1330,0,90,0,0x0, bhvFlame,31),
+OBJECT_WITH_ACTS(144,2089,1331,-511,0,270,0,0x0, bhvFlame,31),
+OBJECT_WITH_ACTS(144,1331,1075,-1330,0,90,0,0x0, bhvFlame,31),
+OBJECT_WITH_ACTS(144,2089,1331,-1125,0,270,0,0x0, bhvFlame,31),
+        TERRAIN(/*terrainData*/ bbh_seg7_collision_level),
+        ROOMS(/*surfaceRooms*/ bbh_seg7_rooms),
+        SHOW_DIALOG(/*index*/ 0x00, DIALOG_098),
+        SET_BACKGROUND_MUSIC(/*settingsPreset*/ 0x0006, /*seq*/ SEQ_LEVEL_SPOOKY),
+        TERRAIN_TYPE(/*terrainType*/ TERRAIN_SPOOKY),
+    END_AREA(),
+
+    FREE_LEVEL_POOL(),
+    MARIO_POS(/*area*/ 1, /*yaw*/ 180, /*pos*/ 666, -204, 5350),
+    CALL(/*arg*/ 0, /*func*/ lvl_init_or_update),
+    CALL_LOOP(/*arg*/ 1, /*func*/ lvl_init_or_update),
+    CLEAR_LEVEL(),
+    SLEEP_BEFORE_EXIT(/*frames*/ 1),
+    EXIT(),
+};

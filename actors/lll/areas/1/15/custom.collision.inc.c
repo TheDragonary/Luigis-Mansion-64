@@ -1,0 +1,13 @@
+const Collision col_lll_geo_000AF0_0x301cecc[] = {
+COL_INIT(),
+COL_VERTEX_INIT(4),
+COL_VERTEX( -200, 0, -200),
+COL_VERTEX( 200, 0, -200),
+COL_VERTEX( 200, 0, 200),
+COL_VERTEX( -200, 0, 200),
+COL_TRI_INIT( 0, 2),
+COL_TRI( 2, 1, 0),
+COL_TRI( 3, 2, 0),
+COL_TRI_STOP(),
+COL_END(),
+};

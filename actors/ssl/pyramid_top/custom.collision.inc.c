@@ -1,0 +1,18 @@
+const Collision col_ssl_geo_000618_0x70125f4[] = {
+COL_INIT(),
+COL_VERTEX_INIT(5),
+COL_VERTEX( -511, -255, 512),
+COL_VERTEX( 512, -255, -511),
+COL_VERTEX( 512, -255, 512),
+COL_VERTEX( 0, 256, 0),
+COL_VERTEX( -511, -255, -511),
+COL_TRI_INIT( 53, 6),
+COL_TRI( 0, 1, 2),
+COL_TRI( 0, 2, 3),
+COL_TRI( 2, 1, 3),
+COL_TRI( 0, 4, 1),
+COL_TRI( 1, 4, 3),
+COL_TRI( 4, 0, 3),
+COL_TRI_STOP(),
+COL_END(),
+};
